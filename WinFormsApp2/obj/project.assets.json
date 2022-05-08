@@ -5709,9 +5709,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\damir\\OneDrive\\Документы\\voicehelper\\WinFormsApp2\\Voice Helper.csproj",
-      "projectName": "Voice Helper",
-      "projectPath": "C:\\Users\\damir\\OneDrive\\Документы\\voicehelper\\WinFormsApp2\\Voice Helper.csproj",
+      "projectUniqueName": "C:\\Users\\damir\\OneDrive\\Документы\\voicehelper\\WinFormsApp2\\VoiceHelper.csproj",
+      "projectName": "VoiceHelper",
+      "projectPath": "C:\\Users\\damir\\OneDrive\\Документы\\voicehelper\\WinFormsApp2\\VoiceHelper.csproj",
       "packagesPath": "C:\\Users\\damir\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\damir\\OneDrive\\Документы\\voicehelper\\WinFormsApp2\\obj\\",
       "projectStyle": "PackageReference",
