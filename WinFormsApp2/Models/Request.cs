@@ -1,12 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace VoiceHelper.Models
 {
-    internal class Request
+    abstract internal class Request
     {
+        public Guid Id { get; set; }
+        public string Path { get; set; } = "";
     }
 }
