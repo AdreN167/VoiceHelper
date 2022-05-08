@@ -9,5 +9,6 @@ namespace WinFormsApp2
     internal class Class1
     {
         int p;
+        int a;
     }
 }
