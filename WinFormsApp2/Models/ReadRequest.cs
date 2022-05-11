@@ -6,5 +6,10 @@ namespace VoiceHelper.Models
     {
         public Guid Id { get; set; }
         public string Path { get; set; } = "";
+
+        public ReadRequest(string path)
+        {
+            Path = path;
+        }
     }
 }
