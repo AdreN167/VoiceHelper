@@ -1,15 +1,9 @@
-﻿using System;
+﻿using VoiceHelper.Services;
 
 namespace VoiceHelper.Models
 {
-    class ReadRequest
+    class ReadRequest : Request
     {
-        public Guid Id { get; set; }
-        public string Path { get; set; } = "";
-
-        public ReadRequest(string path)
-        {
-            Path = path;
-        }
+        public ReadRequest(string path) : base(path) { }
     }
 }
