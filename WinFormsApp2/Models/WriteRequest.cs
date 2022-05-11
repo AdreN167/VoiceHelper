@@ -9,11 +9,15 @@ namespace VoiceHelper.Models
 {
     internal class WriteRequest
     {
-        string name;
-        int age;
-        public void Andreylox()
+        string request;
+        bool a;
+        public WriteRequest(string b)
         {
-            MessageBox.Show("Andrey lox");
+            request = b;
+        }
+        public void Abrakadabra()
+        {
+            request = "asdasdasd";
         }
     }
 }
