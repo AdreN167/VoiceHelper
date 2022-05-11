@@ -1,23 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-
-namespace VoiceHelper.Models
+﻿namespace VoiceHelper.Models
 {
-    internal class WriteRequest
+    internal class WriteRequest : Request
     {
-        string request;
-        bool a;
-        public WriteRequest(string b)
+        public string Message { get; set; } = "";
+        public WriteRequest(string path) : base(path) { }
+        public WriteRequest(string path, string message) : base(path)
         {
-            request = b;
-        }
-        public void Abrakadabra()
-        {
-            request = "asdasdasd";
+            Message = message;
         }
     }
 }

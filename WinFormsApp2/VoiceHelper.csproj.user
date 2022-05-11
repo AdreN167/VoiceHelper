@@ -4,11 +4,7 @@
     <Compile Update="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
-<<<<<<< HEAD
     <Compile Update="Forms\newForm.cs">
-=======
-    <Compile Update="Forms\Form1.cs">
->>>>>>> 759e01ce5d3b8c10ff6f971db5ad487a1d882eb7
       <SubType>Form</SubType>
     </Compile>
   </ItemGroup>
