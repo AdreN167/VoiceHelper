@@ -1,8 +1,14 @@
 {
   "version": 2,
+<<<<<<< HEAD
   "dgSpecHash": "HvvJlzmu3Z8CH7VelzFA0GjxmeVq+ma+w1BfX1S0AOO3EgA4FwwAB52HdMnQUbQ48UROQZwtN97gkphMN9p2rA==",
   "success": true,
   "projectFilePath": "C:\\Users\\damir\\source\\repos\\VoiceHelper\\WinFormsApp2\\VoiceHelper.csproj",
+=======
+  "dgSpecHash": "8zgGEKfc4tee+TJLe40dkgOC8zB+dcMX1Ta73gFA2D6Hg6+xTYxX0YkmnLs0/t87k/+poUGR5yW2nAI1GUrYHg==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\andre\\Source\\Repos\\VoiceHelper\\WinFormsApp2\\VoiceHelper.csproj",
+>>>>>>> 759e01ce5d3b8c10ff6f971db5ad487a1d882eb7
   "expectedPackageFiles": [
     "C:\\Users\\damir\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
     "C:\\Users\\damir\\.nuget\\packages\\microsoft.data.sqlclient\\2.0.1\\microsoft.data.sqlclient.2.0.1.nupkg.sha512",
