@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace VoiceHelper.Forms
 {
-    public partial class Form1 : Form
+    public partial class newForm : Form
     {
-        public Form1()
+        public newForm()
         {
             InitializeComponent();
         }

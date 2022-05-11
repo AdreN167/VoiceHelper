@@ -1,7 +1,7 @@
 ﻿
 namespace VoiceHelper.Forms
 {
-    partial class Form1
+    partial class newForm
     {
         /// <summary>
         /// Required designer variable.
@@ -29,10 +29,17 @@ namespace VoiceHelper.Forms
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            this.SuspendLayout();
+            // 
+            // newForm
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Name = "newForm";
             this.Text = "Form1";
+            this.ResumeLayout(false);
+
         }
 
         #endregion
