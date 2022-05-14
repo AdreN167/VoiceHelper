@@ -111,3 +111,4 @@ C:\Users\damir\source\repos\VoiceHelper\WinFormsApp2\bin\Debug\net5.0-windows\ru
 C:\Users\damir\source\repos\VoiceHelper\WinFormsApp2\bin\Debug\net5.0-windows\runtimes\win10-arm64\native\Microsoft.CognitiveServices.Speech.extension.mas.dll
 C:\Users\damir\source\repos\VoiceHelper\WinFormsApp2\bin\Debug\net5.0-windows\runtimes\win\lib\netcoreapp2.1\System.Speech.dll
 C:\Users\damir\source\repos\VoiceHelper\WinFormsApp2\obj\Debug\net5.0-windows\VoiceHelper.Forms.newForm.resources
+C:\Users\damir\source\repos\VoiceHelper\WinFormsApp2\bin\Debug\net5.0-windows\Microsoft.Speech.dll

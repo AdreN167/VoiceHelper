@@ -11,7 +11,8 @@
           "Microsoft.CognitiveServices.Speech": "1.21.0",
           "Microsoft.EntityFrameworkCore": "5.0.16",
           "Microsoft.EntityFrameworkCore.SqlServer": "5.0.16",
-          "System.Speech": "5.0.0"
+          "System.Speech": "5.0.0",
+          "Microsoft.Speech": "11.0.0.0"
         },
         "runtime": {
           "VoiceHelper.dll": {}
@@ -1276,6 +1277,14 @@
           "System.Xml.ReaderWriter": "4.3.0",
           "System.Xml.XmlDocument": "4.3.0"
         }
+      },
+      "Microsoft.Speech/11.0.0.0": {
+        "runtime": {
+          "Microsoft.Speech.dll": {
+            "assemblyVersion": "11.0.0.0",
+            "fileVersion": "11.0.7400.345"
+          }
+        }
       }
     }
   },
@@ -1956,6 +1965,11 @@
       "sha512": "sha512-MYoTCP7EZ98RrANESW05J5ZwskKDoN0AuZ06ZflnowE50LTpbR5yRg3tHckTVm5j/m47stuGgCrCHWePyHS70Q==",
       "path": "system.xml.xmlserializer/4.3.0",
       "hashPath": "system.xml.xmlserializer.4.3.0.nupkg.sha512"
+    },
+    "Microsoft.Speech/11.0.0.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
     }
   }
 }
