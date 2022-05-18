@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "qwWn9MSf6PEVLdszWI6x/x1DVLerX1GJG+vUKc4kdkdZCRur7uhrojU6rTSEo+xObAvhlg6IdMbEqSmpbiMl1w==",
+  "dgSpecHash": "7XkbfobSjP1Vx/kn9CRFkMME5LWIkCMFFKLqLnGGxGzEadcXAwNiNzu3A9aZ98MeL5NRUP7UKRJIFXGCahmlrA==",
   "success": true,
   "projectFilePath": "C:\\Users\\damir\\source\\repos\\VoiceHelper\\WinFormsApp2\\VoiceHelper.csproj",
   "expectedPackageFiles": [
@@ -99,7 +99,8 @@
     "C:\\Users\\damir\\.nuget\\packages\\system.xml.readerwriter\\4.3.0\\system.xml.readerwriter.4.3.0.nupkg.sha512",
     "C:\\Users\\damir\\.nuget\\packages\\system.xml.xdocument\\4.3.0\\system.xml.xdocument.4.3.0.nupkg.sha512",
     "C:\\Users\\damir\\.nuget\\packages\\system.xml.xmldocument\\4.3.0\\system.xml.xmldocument.4.3.0.nupkg.sha512",
-    "C:\\Users\\damir\\.nuget\\packages\\system.xml.xmlserializer\\4.3.0\\system.xml.xmlserializer.4.3.0.nupkg.sha512"
+    "C:\\Users\\damir\\.nuget\\packages\\system.xml.xmlserializer\\4.3.0\\system.xml.xmlserializer.4.3.0.nupkg.sha512",
+    "C:\\Users\\damir\\.nuget\\packages\\verint.microsoft.speech.x64\\11.0.7400.348\\verint.microsoft.speech.x64.11.0.7400.348.nupkg.sha512"
   ],
   "logs": []
 }

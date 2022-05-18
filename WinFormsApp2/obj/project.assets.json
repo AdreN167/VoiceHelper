@@ -591,7 +591,7 @@
           "System.Security.Principal.Windows": "5.0.0"
         },
         "compile": {
-          "ref/netstandard2.0/_._": {}
+          "ref/netstandard2.0/Microsoft.Win32.Registry.dll": {}
         },
         "runtime": {
           "lib/netstandard2.0/Microsoft.Win32.Registry.dll": {}
@@ -1387,7 +1387,7 @@
           "System.Security.Principal.Windows": "5.0.0"
         },
         "compile": {
-          "ref/netstandard2.0/_._": {}
+          "ref/netstandard2.0/System.Security.AccessControl.dll": {}
         },
         "runtime": {
           "lib/netstandard2.0/System.Security.AccessControl.dll": {}
@@ -1463,7 +1463,7 @@
       "System.Security.Principal.Windows/5.0.0": {
         "type": "package",
         "compile": {
-          "ref/netcoreapp3.0/_._": {}
+          "ref/netcoreapp3.0/System.Security.Principal.Windows.dll": {}
         },
         "runtime": {
           "lib/netstandard2.0/System.Security.Principal.Windows.dll": {}
@@ -1732,6 +1732,18 @@
         },
         "runtime": {
           "lib/netstandard1.3/System.Xml.XmlSerializer.dll": {}
+        }
+      },
+      "Verint.Microsoft.Speech.x64/11.0.7400.348": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Win32.Registry": "4.0.0"
+        },
+        "compile": {
+          "lib/netstandard2.1/Microsoft.Speech.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.1/Microsoft.Speech.dll": {}
         }
       }
     }
@@ -6246,6 +6258,24 @@
         "system.xml.xmlserializer.4.3.0.nupkg.sha512",
         "system.xml.xmlserializer.nuspec"
       ]
+    },
+    "Verint.Microsoft.Speech.x64/11.0.7400.348": {
+      "sha512": "uf3uj3wPfYEQH+piZVtmNQvijqNbMNY2/3CQ5REZR/va5nSZjLeHm3oFjk4SwuQ7Yos8teT4V2hLUmLjgbya9A==",
+      "type": "package",
+      "path": "verint.microsoft.speech.x64/11.0.7400.348",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Microsoft Speech Platform SDK 11 License.rtf",
+        "Microsoft Speech Platform SDK 11 License.txt",
+        "Microsoft Speech Platform SDK 11 Release Notes.rtf",
+        "lib/net20/Microsoft.Speech.dll",
+        "lib/net20/Microsoft.Speech.pdb",
+        "lib/netstandard2.1/Microsoft.Speech.dll",
+        "lib/netstandard2.1/Microsoft.Speech.pdb",
+        "verint.microsoft.speech.x64.11.0.7400.348.nupkg.sha512",
+        "verint.microsoft.speech.x64.nuspec"
+      ]
     }
   },
   "projectFileDependencyGroups": {
@@ -6253,7 +6283,8 @@
       "Microsoft.CognitiveServices.Speech >= 1.21.0",
       "Microsoft.EntityFrameworkCore >= 5.0.16",
       "Microsoft.EntityFrameworkCore.SqlServer >= 5.0.16",
-      "System.Speech >= 5.0.0"
+      "System.Speech >= 5.0.0",
+      "Verint.Microsoft.Speech.x64 >= 11.0.7400.348"
     ]
   },
   "packageFolders": {
@@ -6318,6 +6349,10 @@
           "System.Speech": {
             "target": "Package",
             "version": "[5.0.0, )"
+          },
+          "Verint.Microsoft.Speech.x64": {
+            "target": "Package",
+            "version": "[11.0.7400.348, )"
           }
         },
         "imports": [

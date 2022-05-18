@@ -7,57 +7,50 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-//using System.Speech.Recognition;
 using Microsoft.Speech.Recognition;
-
 
 
 namespace WinFormsApp2
 {
     public partial class Form1 : Form
     {
-        static TextBox textBox = new TextBox();
-
         public Form1()
         {
             InitializeComponent();
 
         }
 
+        static Label l;
+
         static void sre_SpeechRecognized(object sender, SpeechRecognizedEventArgs e)
         {
-            if (e.Result.Confidence > 0.82) textBox.Text = e.Result.Text;
+            if (e.Result.Confidence > 0.7) l.Text = e.Result.Text;
         }
 
         private void Form1_Shown(object sender, EventArgs e)
         {
-            textBox = textBox1;
-            try
-            {
-                System.Globalization.CultureInfo ci = new System.Globalization.CultureInfo("ru-ru");
-                SpeechRecognitionEngine sre = new SpeechRecognitionEngine(ci);
-                sre.SetInputToDefaultAudioDevice();
+            l = label1;
 
-                sre.SpeechRecognized += new EventHandler<SpeechRecognizedEventArgs>(sre_SpeechRecognized);
+            System.Globalization.CultureInfo ci = new System.Globalization.CultureInfo("ru-ru");
+            SpeechRecognitionEngine sre = new SpeechRecognitionEngine(ci);
+            sre.SetInputToDefaultAudioDevice();
 
-
-                Choices numbers = new Choices();
-                numbers.Add(new string[] { "один", "два", "три", "четыре", "пять" });
+            sre.SpeechRecognized += new EventHandler<SpeechRecognizedEventArgs>(sre_SpeechRecognized);
 
 
-                GrammarBuilder gb = new GrammarBuilder();
-                gb.Culture = ci;
-                gb.Append(numbers);
+            Choices numbers = new Choices();
+            numbers.Add(new string[] { "один", "два", "три", "четыре", "пять" });
 
 
-                Grammar g = new Grammar(gb);
-                sre.LoadGrammar(g);
+            GrammarBuilder gb = new GrammarBuilder();
+            gb.Culture = ci;
+            gb.Append(numbers);
 
-                sre.RecognizeAsync(RecognizeMode.Multiple);
-            }catch(Exception exp)
-            {
-                MessageBox.Show(exp.ToString());
-            }
+
+            Grammar g = new Grammar(gb);
+            sre.LoadGrammar(g);
+
+            sre.RecognizeAsync(RecognizeMode.Multiple);
         }
     }
 }
