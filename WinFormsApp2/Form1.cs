@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -24,70 +25,101 @@ namespace WinFormsApp2
         }
         static string command = ""; // строка с командой
         static Service service = new Service();
-
+        bool isWork = true;
         public void sre_SpeechRecognized(object sender, SpeechRecognizedEventArgs e)
         {
-            if (e.Result.Confidence > 0.5) // коэф совпадения сказанного 0.7 от оригинала
+            if (e.Result.Confidence > 0.85) // коэф совпадения сказанного 0.7 от оригинала
             {
                 command = e.Result.Text; // запись скзанного в переменную с командой
             }
+            command.ToLower();
+            if (isWork)
+            {
+                label_Status.Text = "Ева работает!";
+            }
+            else
+            {
+                label_Status.Text = "Ева спит!";
 
+            }
             switch (command) // обработчик команд
             {
                 // список команд 
-                case "Перезапиши в файл": 
+                case "ева, перезапиши в файл":
                     {
-                        using (var context = new RequestContext())
+                        if (isWork)
                         {
-                            if (saveFileDialog1.ShowDialog() != DialogResult.Cancel && textBox1.Text != string.Empty)
+                            using (var context = new RequestContext())
                             {
-                                var request = new WriteRequest();
-
-                                request.Message = textBox1.Text;
-                                request.Path = saveFileDialog1.FileName;
-
-                                if (service.Write(request))
+                                if (saveFileDialog1.ShowDialog() != DialogResult.Cancel && textBox1.Text != string.Empty)
                                 {
-                                    context.Add(request);
-                                    context.SaveChanges();
+                                    var request = new WriteRequest();
+
+                                    request.Message = textBox1.Text;
+                                    request.Path = saveFileDialog1.FileName;
+
+                                    if (service.Write(request))
+                                    {
+                                        context.Add(request);
+                                        context.SaveChanges();
+                                    }
                                 }
                             }
                         }
                     }
                     break;
-                case "Добавь в файл":
+                case "ева, добавь в файл":
                     {
-                        using (var context = new RequestContext())
+                        if (isWork)
                         {
-                            if (saveFileDialog1.ShowDialog() != DialogResult.Cancel && textBox1.Text != string.Empty)
+                            using (var context = new RequestContext())
                             {
-                                var request = new WriteRequest();
-
-                                request.Message = textBox1.Text;
-                                request.Path = saveFileDialog1.FileName;
-
-                                if (service.Append(request))
+                                if (saveFileDialog1.ShowDialog() != DialogResult.Cancel && textBox1.Text != string.Empty)
                                 {
-                                    context.Add(request);
-                                    context.SaveChanges();
+                                    var request = new WriteRequest();
+
+                                    request.Message = textBox1.Text;
+                                    request.Path = saveFileDialog1.FileName;
+
+                                    if (service.Append(request))
+                                    {
+                                        context.Add(request);
+                                        context.SaveChanges();
+                                    }
                                 }
                             }
                         }
-                    }
-                    break;
-                case "com3":
-                    {
 
                     }
                     break;
-                case "com4":
+                case "ева, врубись":
+                case "ева, появись":
+                case "ева, привызваю тебя":
                     {
-
+                        isWork = true;
+                    }
+                    break;
+                case "ева, открой оперу":
+                    {
+                        if (isWork)
+                        {
+                            Process.Start("C:\\Users\\damir\\AppData\\Local\\Programs\\Opera GX\\launcher.exe");
+                        }
                     }
                     break;
                 case "com5":
                     {
+                        if (isWork)
+                        {
 
+                        }
+                    }
+                    break;
+                case "ева плохая уйди":
+                case "ева, андрей сказал тебе иди нахуй!":
+                case "ева, андрей сказал тебе иди в попу!":
+                    {
+                        isWork = false;
                     }
                     break;
             }
@@ -102,7 +134,12 @@ namespace WinFormsApp2
             sre.SpeechRecognized += new EventHandler<SpeechRecognizedEventArgs>(sre_SpeechRecognized); // создание события распознавания речи
 
             Choices numbers = new Choices();
-            numbers.Add(new string[] { "Перезапиши в файл", "Добавь в файл", "com3", "com4", "com5" }); // список команд введенных голосом
+            numbers.Add(new string[] {
+                "ева, перезапиши в файл", "ева, добавь в файл", 
+                "ева плохая уйди", "ева, андрей сказал тебе иди нахуй!", "ева, андрей сказал тебе иди в попу!",
+                "ева, врубись", "ева, появись", "ева, привызваю тебя",
+                "ева, открой оперу"
+            }); // список команд введенных голосом
 
             // грамматика
             // ---------------------
@@ -133,7 +170,20 @@ namespace WinFormsApp2
 
         private void button_send_Click(object sender, EventArgs e)
         {
-            
+
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            if (isWork)
+            {
+                label_Status.Text = "Ева работает!";
+            }
+            else
+            {
+                label_Status.Text = "Ева спит!";
+
+            }
         }
     }
 }

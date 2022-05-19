@@ -38,6 +38,7 @@
             this.button_send = new System.Windows.Forms.Button();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
+            this.label_Status = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -49,7 +50,7 @@
             this.настройкиToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(800, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(758, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -75,7 +76,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(382, 31);
+            this.label1.Location = new System.Drawing.Point(322, 42);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(78, 32);
             this.label1.TabIndex = 3;
@@ -83,9 +84,9 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(12, 31);
+            this.button1.Location = new System.Drawing.Point(149, 236);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(141, 75);
+            this.button1.Size = new System.Drawing.Size(129, 26);
             this.button1.TabIndex = 4;
             this.button1.Text = "Update";
             this.button1.UseVisualStyleBackColor = true;
@@ -93,7 +94,7 @@
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(12, 148);
+            this.textBox1.Location = new System.Drawing.Point(12, 42);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(266, 188);
@@ -101,9 +102,9 @@
             // 
             // button_send
             // 
-            this.button_send.Location = new System.Drawing.Point(13, 345);
+            this.button_send.Location = new System.Drawing.Point(13, 236);
             this.button_send.Name = "button_send";
-            this.button_send.Size = new System.Drawing.Size(75, 23);
+            this.button_send.Size = new System.Drawing.Size(120, 26);
             this.button_send.TabIndex = 6;
             this.button_send.Text = "Send";
             this.button_send.UseVisualStyleBackColor = true;
@@ -113,11 +114,22 @@
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
             // 
+            // label_Status
+            // 
+            this.label_Status.AutoSize = true;
+            this.label_Status.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label_Status.Location = new System.Drawing.Point(13, 330);
+            this.label_Status.Name = "label_Status";
+            this.label_Status.Size = new System.Drawing.Size(78, 32);
+            this.label_Status.TabIndex = 7;
+            this.label_Status.Text = "label2";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(758, 371);
+            this.Controls.Add(this.label_Status);
             this.Controls.Add(this.button_send);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.button1);
@@ -125,7 +137,8 @@
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "ева";
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.Shown += new System.EventHandler(this.Form1_Shown);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
@@ -146,5 +159,6 @@
         private System.Windows.Forms.Button button_send;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.SaveFileDialog saveFileDialog1;
+        private System.Windows.Forms.Label label_Status;
     }
 }
