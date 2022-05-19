@@ -35,7 +35,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.button_send = new System.Windows.Forms.Button();
+            this.button_remove = new System.Windows.Forms.Button();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.label_Status = new System.Windows.Forms.Label();
@@ -100,15 +100,15 @@
             this.textBox1.Size = new System.Drawing.Size(266, 188);
             this.textBox1.TabIndex = 5;
             // 
-            // button_send
+            // button_remove
             // 
-            this.button_send.Location = new System.Drawing.Point(13, 236);
-            this.button_send.Name = "button_send";
-            this.button_send.Size = new System.Drawing.Size(120, 26);
-            this.button_send.TabIndex = 6;
-            this.button_send.Text = "Send";
-            this.button_send.UseVisualStyleBackColor = true;
-            this.button_send.Click += new System.EventHandler(this.button_send_Click);
+            this.button_remove.Location = new System.Drawing.Point(13, 236);
+            this.button_remove.Name = "button_remove";
+            this.button_remove.Size = new System.Drawing.Size(120, 26);
+            this.button_remove.TabIndex = 6;
+            this.button_remove.Text = "Remove";
+            this.button_remove.UseVisualStyleBackColor = true;
+            this.button_remove.Click += new System.EventHandler(this.button_remove_Click);
             // 
             // openFileDialog1
             // 
@@ -130,7 +130,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(758, 371);
             this.Controls.Add(this.label_Status);
-            this.Controls.Add(this.button_send);
+            this.Controls.Add(this.button_remove);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label1);
@@ -156,7 +156,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Button button_send;
+        private System.Windows.Forms.Button button_remove;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.SaveFileDialog saveFileDialog1;
         private System.Windows.Forms.Label label_Status;

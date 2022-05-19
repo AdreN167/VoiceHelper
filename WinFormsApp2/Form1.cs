@@ -103,7 +103,7 @@ namespace WinFormsApp2
                     {
                         if (isWork)
                         {
-                            Process.Start("C:\\Users\\damir\\AppData\\Local\\Programs\\Opera GX\\launcher.exe");
+                            Process.Start("C:\\Users\\andre\\AppData\\Local\\Programs\\Opera GX\\launcher.exe");
                         }
                     }
                     break;
@@ -135,7 +135,7 @@ namespace WinFormsApp2
 
             Choices numbers = new Choices();
             numbers.Add(new string[] {
-                "ева, перезапиши в файл", "ева, добавь в файл", 
+                "ева, перезапиши в файл", "ева, добавь в файл",
                 "ева плохая уйди", "ева, андрей сказал тебе иди нахуй!", "ева, андрей сказал тебе иди в попу!",
                 "ева, врубись", "ева, появись", "ева, привызваю тебя",
                 "ева, открой оперу"
@@ -168,10 +168,7 @@ namespace WinFormsApp2
             }
         }
 
-        private void button_send_Click(object sender, EventArgs e)
-        {
 
-        }
 
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -183,6 +180,15 @@ namespace WinFormsApp2
             {
                 label_Status.Text = "Ева спит!";
 
+            }
+        }
+
+        private void button_remove_Click(object sender, EventArgs e)
+        {
+            using (var context = new RequestContext())
+            {
+                context.RemoveRange(context.writeRequests);
+                context.SaveChanges();
             }
         }
     }
