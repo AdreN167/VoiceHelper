@@ -20,26 +20,41 @@ namespace WinFormsApp2
             InitializeComponent();
 
         }
-        static string command = "";
+        static string command = ""; // строка с командой
 
         static void sre_SpeechRecognized(object sender, SpeechRecognizedEventArgs e)
         {
-            if (e.Result.Confidence > 0.7)
+            if (e.Result.Confidence > 0.7) // коэф совпадения сказанного 0.7 от оригинала
             {
-                command = e.Result.Text;
+                command = e.Result.Text; // запись скзанного в переменную с командой
             }
             newForm form = new newForm();
-            switch (command)
+            switch (command) // обработчик команд
             {
-                case "Открой новую форму":
+                // список команд 
+                case "Открой новую форму": 
                     {
                         
-                        form.Show();
                     }
                     break;
-                case "Закрой форму":
+                case "com2":
                     {
-                        form.Close();
+
+                    }
+                    break;
+                case "com3":
+                    {
+
+                    }
+                    break;
+                case "com4":
+                    {
+
+                    }
+                    break;
+                case "com5":
+                    {
+
                     }
                     break;
             }
@@ -47,32 +62,26 @@ namespace WinFormsApp2
 
         private void Form1_Shown(object sender, EventArgs e)
         {
-
-            System.Globalization.CultureInfo ci = new System.Globalization.CultureInfo("ru-ru");
+            System.Globalization.CultureInfo ci = new System.Globalization.CultureInfo("ru-ru"); // Создание обработчика языка (русская версия)
             SpeechRecognitionEngine sre = new SpeechRecognitionEngine(ci);
-            sre.SetInputToDefaultAudioDevice();
+            sre.SetInputToDefaultAudioDevice(); // использование средства ввода по умолчанию
 
-            sre.SpeechRecognized += new EventHandler<SpeechRecognizedEventArgs>(sre_SpeechRecognized);
-
+            sre.SpeechRecognized += new EventHandler<SpeechRecognizedEventArgs>(sre_SpeechRecognized); // создание события распознавания речи
 
             Choices numbers = new Choices();
-            numbers.Add(new string[] { "Открой новую форму", "Закрой форму", "три", "четыре", "пять" });
+            numbers.Add(new string[] { "Открой новую форму", "com2", "com3", "com4", "com5" }); // список команд введенных голосом
 
-
+            // грамматика
+            // ---------------------
             GrammarBuilder gb = new GrammarBuilder();
             gb.Culture = ci;
             gb.Append(numbers);
 
-
             Grammar g = new Grammar(gb);
             sre.LoadGrammar(g);
+            // ---------------------
 
-            sre.RecognizeAsync(RecognizeMode.Multiple);
-        }
-
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
+            sre.RecognizeAsync(RecognizeMode.Multiple); // множественное - multiple распознавание текста
         }
     }
 }
