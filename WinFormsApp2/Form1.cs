@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Microsoft.Speech.Recognition;
+using VoiceHelper.Forms;
 
 
 namespace WinFormsApp2
@@ -19,17 +20,33 @@ namespace WinFormsApp2
             InitializeComponent();
 
         }
-
-        static Label l;
+        static string command = "";
 
         static void sre_SpeechRecognized(object sender, SpeechRecognizedEventArgs e)
         {
-            if (e.Result.Confidence > 0.7) l.Text = e.Result.Text;
+            if (e.Result.Confidence > 0.7)
+            {
+                command = e.Result.Text;
+            }
+            newForm form = new newForm();
+            switch (command)
+            {
+                case "Открой новую форму":
+                    {
+                        
+                        form.Show();
+                    }
+                    break;
+                case "Закрой форму":
+                    {
+                        form.Close();
+                    }
+                    break;
+            }
         }
 
         private void Form1_Shown(object sender, EventArgs e)
         {
-            l = label1;
 
             System.Globalization.CultureInfo ci = new System.Globalization.CultureInfo("ru-ru");
             SpeechRecognitionEngine sre = new SpeechRecognitionEngine(ci);
@@ -39,7 +56,7 @@ namespace WinFormsApp2
 
 
             Choices numbers = new Choices();
-            numbers.Add(new string[] { "один", "два", "три", "четыре", "пять" });
+            numbers.Add(new string[] { "Открой новую форму", "Закрой форму", "три", "четыре", "пять" });
 
 
             GrammarBuilder gb = new GrammarBuilder();
