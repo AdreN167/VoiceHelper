@@ -34,7 +34,7 @@ namespace WinFormsApp2
                 // список команд 
                 case "Открой новую форму": 
                     {
-                        
+                        form.Show();
                     }
                     break;
                 case "com2":
