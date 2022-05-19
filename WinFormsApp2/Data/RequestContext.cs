@@ -15,7 +15,7 @@ namespace VoiceHelper.Data
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("server=localhost; Database=requestsdb; Trusted_Connection=True;");
+            optionsBuilder.UseSqlServer("server=(localdb)\\MSSQLLocalDB; Database=requestsdb; Trusted_Connection=True;");
         }
     }
 }

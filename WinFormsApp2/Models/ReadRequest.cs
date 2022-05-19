@@ -4,6 +4,10 @@ namespace VoiceHelper.Models
 {
     class ReadRequest : Request
     {
-        public ReadRequest(string path) : base(path) { }
+        public ReadRequest() { }
+        public ReadRequest(string path)
+        { 
+            Path = path;
+        }
     }
 }

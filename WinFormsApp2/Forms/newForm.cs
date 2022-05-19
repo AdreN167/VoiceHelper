@@ -1,13 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using WinFormsApp2;
+using VoiceHelper.Data;
+using VoiceHelper.Models;
 
 namespace VoiceHelper.Forms
 {
@@ -16,6 +10,20 @@ namespace VoiceHelper.Forms
         public newForm()
         {
             InitializeComponent();
+        }
+
+        //private void button1_Click(object sender, EventArgs e)
+        //{
+        //    using (var context = new RequestContext())
+        //    {
+        //        context.Add(new WriteRequest { Message = "Hello, world!", Path = "A.txt" });
+        //        context.SaveChanges();
+        //    }
+        //} я проебал кнопку, поэтому закомментил это событие :)
+
+        private void newForm_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
