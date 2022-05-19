@@ -8,9 +8,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Microsoft.Speech.Recognition;
-using VoiceHelper.Forms;
 using VoiceHelper.Data;
 using VoiceHelper.Models;
+using VoiceHelper.Services;
 
 
 namespace WinFormsApp2
@@ -23,8 +23,9 @@ namespace WinFormsApp2
 
         }
         static string command = ""; // строка с командой
+        static Service service = new Service();
 
-        static void sre_SpeechRecognized(object sender, SpeechRecognizedEventArgs e)
+        public void sre_SpeechRecognized(object sender, SpeechRecognizedEventArgs e)
         {
             if (e.Result.Confidence > 0.5) // коэф совпадения сказанного 0.7 от оригинала
             {
@@ -34,18 +35,44 @@ namespace WinFormsApp2
             switch (command) // обработчик команд
             {
                 // список команд 
-                case "Запиши в файл": 
+                case "Перезапиши в файл": 
                     {
                         using (var context = new RequestContext())
                         {
-                            context.Add(new WriteRequest { Message = "Пошел нахуй)", Path = "DamirPidr.txt" });
-                            context.SaveChanges();
+                            if (saveFileDialog1.ShowDialog() != DialogResult.Cancel && textBox1.Text != string.Empty)
+                            {
+                                var request = new WriteRequest();
+
+                                request.Message = textBox1.Text;
+                                request.Path = saveFileDialog1.FileName;
+
+                                if (service.Write(request))
+                                {
+                                    context.Add(request);
+                                    context.SaveChanges();
+                                }
+                            }
                         }
                     }
                     break;
-                case "com2":
+                case "Добавь в файл":
                     {
+                        using (var context = new RequestContext())
+                        {
+                            if (saveFileDialog1.ShowDialog() != DialogResult.Cancel && textBox1.Text != string.Empty)
+                            {
+                                var request = new WriteRequest();
 
+                                request.Message = textBox1.Text;
+                                request.Path = saveFileDialog1.FileName;
+
+                                if (service.Append(request))
+                                {
+                                    context.Add(request);
+                                    context.SaveChanges();
+                                }
+                            }
+                        }
                     }
                     break;
                 case "com3":
@@ -75,7 +102,7 @@ namespace WinFormsApp2
             sre.SpeechRecognized += new EventHandler<SpeechRecognizedEventArgs>(sre_SpeechRecognized); // создание события распознавания речи
 
             Choices numbers = new Choices();
-            numbers.Add(new string[] { "Запиши в файл", "com2", "com3", "com4", "com5" }); // список команд введенных голосом
+            numbers.Add(new string[] { "Перезапиши в файл", "Добавь в файл", "com3", "com4", "com5" }); // список команд введенных голосом
 
             // грамматика
             // ---------------------
@@ -102,6 +129,11 @@ namespace WinFormsApp2
                     label1.Text += request.Message + " " + request.Path + " \n";
                 }
             }
+        }
+
+        private void button_send_Click(object sender, EventArgs e)
+        {
+            
         }
     }
 }

@@ -31,5 +31,19 @@ namespace VoiceHelper.Services
                 return true;
             }
         }
+
+        public bool Append(WriteRequest writeRequest)
+        {
+            if (writeRequest == null)
+                return false;
+            else
+            {
+                using (var stream = File.AppendText(writeRequest.Path))
+                {
+                    stream.WriteLine(writeRequest.Message);
+                }
+                return true;
+            }
+        }
     }
 }

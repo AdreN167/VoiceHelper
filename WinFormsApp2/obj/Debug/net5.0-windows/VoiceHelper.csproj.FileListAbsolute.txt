@@ -214,7 +214,6 @@ C:\Users\andre\source\repos\VoiceHelper\WinFormsApp2\bin\Debug\net5.0-windows\ru
 C:\Users\andre\source\repos\VoiceHelper\WinFormsApp2\bin\Debug\net5.0-windows\runtimes\win\lib\netcoreapp2.1\System.Speech.dll
 C:\Users\andre\source\repos\VoiceHelper\WinFormsApp2\obj\Debug\net5.0-windows\VoiceHelper.csproj.AssemblyReference.cache
 C:\Users\andre\source\repos\VoiceHelper\WinFormsApp2\obj\Debug\net5.0-windows\WinFormsApp2.Form1.resources
-C:\Users\andre\source\repos\VoiceHelper\WinFormsApp2\obj\Debug\net5.0-windows\VoiceHelper.Forms.newForm.resources
 C:\Users\andre\source\repos\VoiceHelper\WinFormsApp2\obj\Debug\net5.0-windows\VoiceHelper.csproj.GenerateResource.cache
 C:\Users\andre\source\repos\VoiceHelper\WinFormsApp2\obj\Debug\net5.0-windows\VoiceHelper.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\andre\source\repos\VoiceHelper\WinFormsApp2\obj\Debug\net5.0-windows\VoiceHelper.AssemblyInfoInputs.cache
