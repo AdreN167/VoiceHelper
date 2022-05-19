@@ -16,14 +16,5 @@ namespace VoiceHelper.Forms
         {
 
         }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            using (var context = new RequestContext())
-            {
-                context.Add(new WriteRequest { Message = "Hello, world!", Path = "A.txt" });
-                context.SaveChanges();
-            }
-        }
     }
 }

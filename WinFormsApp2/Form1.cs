@@ -9,6 +9,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Microsoft.Speech.Recognition;
 using VoiceHelper.Forms;
+using VoiceHelper.Data;
+using VoiceHelper.Models;
 
 
 namespace WinFormsApp2
@@ -82,6 +84,15 @@ namespace WinFormsApp2
             // ---------------------
 
             sre.RecognizeAsync(RecognizeMode.Multiple); // множественное - multiple распознавание текста
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            using (var context = new RequestContext())
+            {
+                context.Add(new WriteRequest { Message = "Hello, world!", Path = "A.txt" });
+                context.SaveChanges();
+            }
         }
     }
 }
