@@ -10,8 +10,8 @@ namespace VoiceHelper.Data
             Database.EnsureCreated();
         }
 
-        DbSet<WriteRequest> writeRequests { get; set; }
-        DbSet<ReadRequest> readRequests { get; set; }
+        public DbSet<WriteRequest> writeRequests { get; set; }
+        public DbSet<ReadRequest> readRequests { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

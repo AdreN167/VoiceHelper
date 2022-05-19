@@ -26,17 +26,21 @@ namespace WinFormsApp2
 
         static void sre_SpeechRecognized(object sender, SpeechRecognizedEventArgs e)
         {
-            if (e.Result.Confidence > 0.7) // коэф совпадения сказанного 0.7 от оригинала
+            if (e.Result.Confidence > 0.5) // коэф совпадения сказанного 0.7 от оригинала
             {
                 command = e.Result.Text; // запись скзанного в переменную с командой
             }
-            newForm form = new newForm();
+
             switch (command) // обработчик команд
             {
                 // список команд 
-                case "Открой новую форму": 
+                case "Запиши в файл": 
                     {
-                        form.Show();
+                        using (var context = new RequestContext())
+                        {
+                            context.Add(new WriteRequest { Message = "Пошел нахуй)", Path = "DamirPidr.txt" });
+                            context.SaveChanges();
+                        }
                     }
                     break;
                 case "com2":
@@ -71,7 +75,7 @@ namespace WinFormsApp2
             sre.SpeechRecognized += new EventHandler<SpeechRecognizedEventArgs>(sre_SpeechRecognized); // создание события распознавания речи
 
             Choices numbers = new Choices();
-            numbers.Add(new string[] { "Открой новую форму", "com2", "com3", "com4", "com5" }); // список команд введенных голосом
+            numbers.Add(new string[] { "Запиши в файл", "com2", "com3", "com4", "com5" }); // список команд введенных голосом
 
             // грамматика
             // ---------------------
@@ -90,8 +94,13 @@ namespace WinFormsApp2
         {
             using (var context = new RequestContext())
             {
-                context.Add(new WriteRequest { Message = "Hello, world!", Path = "A.txt" });
-                context.SaveChanges();
+                label1.Text = "";
+
+                var requests = context.writeRequests;
+                foreach (var request in requests)
+                {
+                    label1.Text += request.Message + " " + request.Path + " \n";
+                }
             }
         }
     }
