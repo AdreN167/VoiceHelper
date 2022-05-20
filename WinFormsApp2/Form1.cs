@@ -26,6 +26,7 @@ namespace WinFormsApp2
         static string command = ""; // строка с командой
         static Service service = new Service();
         bool isWork = true;
+
         public void sre_SpeechRecognized(object sender, SpeechRecognizedEventArgs e)
         {
             if (e.Result.Confidence > 0.85) // коэф совпадения сказанного 0.7 от оригинала
@@ -49,22 +50,7 @@ namespace WinFormsApp2
                     {
                         if (isWork)
                         {
-                            using (var context = new RequestContext())
-                            {
-                                if (saveFileDialog1.ShowDialog() != DialogResult.Cancel && textBox1.Text != string.Empty)
-                                {
-                                    var request = new WriteRequest();
-
-                                    request.Message = textBox1.Text;
-                                    request.Path = saveFileDialog1.FileName;
-
-                                    if (service.Write(request))
-                                    {
-                                        context.Add(request);
-                                        context.SaveChanges();
-                                    }
-                                }
-                            }
+                            service.ReWriteInFile(textBox1, saveFileDialog1);
                         }
                     }
                     break;
@@ -72,27 +58,12 @@ namespace WinFormsApp2
                     {
                         if (isWork)
                         {
-                            using (var context = new RequestContext())
-                            {
-                                if (saveFileDialog1.ShowDialog() != DialogResult.Cancel && textBox1.Text != string.Empty)
-                                {
-                                    var request = new WriteRequest();
-
-                                    request.Message = textBox1.Text;
-                                    request.Path = saveFileDialog1.FileName;
-
-                                    if (service.Append(request))
-                                    {
-                                        context.Add(request);
-                                        context.SaveChanges();
-                                    }
-                                }
-                            }
+                            service.AddToFile(textBox1, saveFileDialog1);
                         }
-
                     }
                     break;
                 case "ева, врубись":
+                case "ева, привет":
                 case "ева, появись":
                 case "ева, привызваю тебя":
                     {
@@ -107,11 +78,11 @@ namespace WinFormsApp2
                         }
                     }
                     break;
-                case "com5":
+                case "command4":
                     {
                         if (isWork)
                         {
-
+                            
                         }
                     }
                     break;
@@ -133,8 +104,8 @@ namespace WinFormsApp2
 
             sre.SpeechRecognized += new EventHandler<SpeechRecognizedEventArgs>(sre_SpeechRecognized); // создание события распознавания речи
 
-            Choices numbers = new Choices();
-            numbers.Add(new string[] {
+            Choices commands = new Choices();
+            commands.Add(new string[] {
                 "ева, перезапиши в файл", "ева, добавь в файл",
                 "ева плохая уйди", "ева, андрей сказал тебе иди нахуй!", "ева, андрей сказал тебе иди в попу!",
                 "ева, врубись", "ева, появись", "ева, привызваю тебя",
@@ -145,7 +116,7 @@ namespace WinFormsApp2
             // ---------------------
             GrammarBuilder gb = new GrammarBuilder();
             gb.Culture = ci;
-            gb.Append(numbers);
+            gb.Append(commands);
 
             Grammar g = new Grammar(gb);
             sre.LoadGrammar(g);
@@ -189,6 +160,20 @@ namespace WinFormsApp2
             {
                 context.RemoveRange(context.writeRequests);
                 context.SaveChanges();
+            }
+        }
+
+        private void обновитьToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            using (var context = new RequestContext())
+            {
+                label1.Text = "";
+
+                var requests = context.writeRequests;
+                foreach (var request in requests)
+                {
+                    label1.Text += request.Message + " " + request.Path + " \n";
+                }
             }
         }
     }
